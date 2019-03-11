@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #555;
+}
+button {
+    display: block;
+    margin: 10px auto;
+}
+ul {
+    text-align: center;
+    list-style-type: square;
+}
+li {
+    font-size: 20px;
+    margin-top: 10px;
+    /* list-style: square; */
+}
+.big {
+    font-size: 30px;
+}
