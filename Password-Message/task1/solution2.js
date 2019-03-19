@@ -2,6 +2,8 @@ const input = document.querySelector("input");
 const div = document.querySelector('div');
 const passwords = ['jedEN', 'DwA'];
 const messages = ["super", "działa!"];
+
+//Zmiana tablicy oryginalnej(źródłowej) za pomocą forEach
 passwords.forEach((item, index) => {
     passwords[index] = item.toLowerCase();
     console.log(passwords[index]);

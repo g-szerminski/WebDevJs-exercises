@@ -3,14 +3,16 @@ const div = document.querySelector('div');
 const passwords = ['jedEN', 'DwA'];
 const messages = ["super", "działa!"];
 
-const LCPasswords = passwords.map(item => item.toLowerCase());
+const lowerCasePass = passwords.map(item => item.toLowerCase());
+
 const showMessage = (e) => {
     const text = e.target.value.toLowerCase();
-    for (let i = 0; i < LCPasswords.length; i++) {
-        if(text === LCPasswords[i]) {
-            div.innerHTML = messages[i];
+    lowerCasePass.forEach((item, i) => {
+        if(item === text) {
+            div.textContent = messages[i];
         }
-    }
+    })
     
-};
+}
+
 input.addEventListener('input', showMessage);
