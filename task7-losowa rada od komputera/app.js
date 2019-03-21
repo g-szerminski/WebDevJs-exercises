@@ -28,8 +28,12 @@ const resetOptions = (e)=> {
 };
 const showAdvice = (e)=> {
     e.preventDefault();
-    const index = Math.floor(Math.random() * optionsArray.length);
-    h1.textContent = optionsArray[index];
+    if(optionsArray.length !== 0) {
+        const index = Math.floor(Math.random() * optionsArray.length);
+        h1.textContent = optionsArray[index];
+    } else {
+        h1.textContent = 'Co mam Ci poradzić jak jeszcze nic nie wpisałeś !'
+    }
 };
 const showOptions = (e) => {
     e.preventDefault();
