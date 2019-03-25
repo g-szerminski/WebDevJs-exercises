@@ -7,7 +7,7 @@ const randomNumber = (min, max) => {
     return number;
 }
 
-// Zwracanie losowej liczby całkowitej z danego przedziału
+// Zwracanie losowej liczby całkowitej z danego przedziału czyli od 4 do 6 razem z 6
 Math.floor(Math.random() * (6 - 4 + 1) + 4);
 
 const randomNumberInt = (min, max) => {
