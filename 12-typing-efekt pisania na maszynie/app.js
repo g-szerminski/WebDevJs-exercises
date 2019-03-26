@@ -1,5 +1,6 @@
 const spanTxt = document.querySelector('.text');
-const txt = 'Fugiat occaecat adipisicing nostrud nostrud minim in laborum veniam ea elit. Culpa ad sint elit laboris Lorem ullamco magna quis officia tempor ut. Dolor sint veniam nostrud dolore sint. Minim officia velit Lorem dolor. Reprehenderit consequat consequat nulla irure cupidatat sunt aliquip qui sint quis veniam nostrud ipsum.'
+const spanCursor = document.querySelector('.cursor');
+const txt = 'Fugiat occaecat adipisicing nostrud nostrud minim in laborum veniam ea elit. Culpa ad sint elit laboris Lorem ullamco magna quis officia tempor ut.'
 let txtIndex = 0;
 const time = 40;
 function typeLetter() {
@@ -7,4 +8,8 @@ function typeLetter() {
     txtIndex++;
     if(txtIndex === txt.length) clearInterval(typingTime);
 };
+const cursorAnimation = () => {
+    spanCursor.classList.toggle('active');
+};
 const typingTime = setInterval(typeLetter, time);
+setInterval(cursorAnimation, 400);
