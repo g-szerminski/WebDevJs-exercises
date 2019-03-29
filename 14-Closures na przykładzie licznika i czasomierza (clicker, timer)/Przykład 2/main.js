@@ -29,3 +29,6 @@ const counterFrom5 = add(5);
 document.addEventListener('click', counter);
 document.addEventListener('click', counterFrom5);
 
+// Jaka będzie różnica, jeżeli funkcji add nie przypiszemy do zmiennej counter, tylko wywołamy ją bezpośrednio w addEventListener?
+// no wtedy nie zadziała bo my chcemy wywołać add tylko raz potem korzystamy z funkcji zwróconej przez add, stąd
+// const counter = add() - add() wywołuje funkcje i zmienna counter zapamiętuję tylko to co funkcja zwróciła
