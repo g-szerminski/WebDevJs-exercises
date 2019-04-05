@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #555;
+}
+.wrapper {
+    text-align: center;
+    margin-top: 30px;
+    font-family: arial;
+    height: 500px;
+    background-color: darkblue;
+}
+.wrapper .addPanel {
+    vertical-align: top;
+    margin: 0 auto;
+    display: inline-block;
+    background-color: cadetblue;
+    width: 40%;
+    height: 50%;
+    overflow-y: scroll;
+}
+.wrapper .searchPanel {
+    margin: 0 auto;
+    display: inline-block;
+    background-color: darkred;
+    width: 40%;
+}
+form {
+    font-size: 15px;
+}
+input {
+    font-size: 15px;
+    margin: 20px;
+    width: 30%;
+}
+button {
+    font-size: 15px;
+    padding: 0 5px;
+}
+
+h2 {
+    margin-top: 20px;
+}
+.addUl {
+    list-style: none;;
+}
+li .task {
+    display: block;
+}
