@@ -1,22 +1,22 @@
 const btn = document.querySelector('button');
 element = document.querySelectorAll('li');
-    //element = document.getElementsByTagName('li');
-        //dla forEach trzeba z tak pobranych elementów zrobić tablicę
-    //element = [...document.getElementsByTagName('li')];
+//element = document.getElementsByTagName('li');
+//dla forEach trzeba z tak pobranych elementów zrobić tablicę
+//element = [...document.getElementsByTagName('li')];
 let fontGrow = 10;
 
 //FOREACH
 const chengeSize = () => {
-    element.forEach(item => {
-        if(item.style.display === '') {
-            item.style.display = 'block';
-            console.log('blok');
-        }
-        // item.style.fontSize = fontGrow + 'px';
-        item.style.fontSize = `${fontGrow}px`;
-    });
-    fontGrow++ 
+  element.forEach(item => {
+    if (item.style.display === '') {
+      item.style.display = 'block';
+      console.log('blok');
     }
+    // item.style.fontSize = fontGrow + 'px';
+    item.style.fontSize = `${fontGrow}px`;
+  });
+  fontGrow++
+}
 
 
 //FOR LOOP
