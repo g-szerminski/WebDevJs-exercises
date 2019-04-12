@@ -38,7 +38,8 @@ const showAdvice = (e)=> {
 const showOptions = (e) => {
     e.preventDefault();
     if(optionsArray.length > 0) {
-    alert(optionsArray.join(',\n'));
+    // alert(optionsArray.join(',\n'));
+    alert (optionsArray.join('\n'));
     console.log(optionsArray.join(', '));
     } else {
         alert('nie dodałeś jeszcze żadnej możliwości !')
