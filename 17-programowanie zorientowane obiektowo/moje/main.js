@@ -109,3 +109,12 @@ document.addEventListener('click', function() {
     }
     inside();
 });
+
+const thisExample = function() {
+    console.log(this.example, this);
+    const inside = function() {
+        console.log(this.example, this);
+    };
+    inside();
+}
+thisExample();
