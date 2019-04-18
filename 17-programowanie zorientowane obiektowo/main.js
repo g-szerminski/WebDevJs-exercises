@@ -109,3 +109,13 @@ document.addEventListener('click', function() {
     }
     inside();
 });
+
+const szarik = {
+    children: ['fafi, żaba'],
+    showChildren: function() {
+        this.children.forEach(function(child, index) {
+            console.log(this.children[index]);
+        });
+    }
+}
+szarik.showChildren();
