@@ -110,6 +110,7 @@ document.addEventListener('click', function() {
     inside();
 });
 
+<<<<<<< HEAD:17-programowanie zorientowane obiektowo/main.js
 const szarik = {
     children: ['fafi, żaba'],
     showChildren: function() {
@@ -119,3 +120,13 @@ const szarik = {
     }
 }
 szarik.showChildren();
+=======
+const thisExample = function() {
+    console.log(this.example, this);
+    const inside = function() {
+        console.log(this.example, this);
+    };
+    inside();
+}
+thisExample();
+>>>>>>> 000e3a7e0c9a462c084a871928d3f21f6e33cb53:17-programowanie zorientowane obiektowo/moje/main.js
