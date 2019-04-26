@@ -16,11 +16,10 @@ class Statistics {
         let games = this.gameResults.length;
         let wins = this.gameResults.filter(result => result.win).length;
         let losses = this.gameResults.filter(result => !result.win).length;
-        console.log(`ile razy grałeś: ${games}`);
-        console.log(`przegrane: ${wins}`);
-        console.log('wygrane: ' + losses);
-
-        // return [games, wins, losses];
+        // console.log(`ile razy grałeś: ${games}`);
+        // console.log(`przegrane: ${wins}`);
+        // console.log('wygrane: ' + losses);
+        return [games, wins, losses];
     }
 }
 const stats = new Statistics;

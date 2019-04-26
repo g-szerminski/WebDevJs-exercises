@@ -2,7 +2,7 @@ class Wallet {
     constructor(money) {
         let _money = money;
         this.getWalletValue = () => _money;
-        this.checkCanPlay = (value) => {
+        this.checkCanPlay = value => {
             if(_money >= value) return true;
             return false;
         }
@@ -11,7 +11,7 @@ class Wallet {
                 if(type === '+') {
                     return _money += value;
                 } else if(type === '-') {
-                    return _money -+ value;
+                    return _money -= value;
                 } else {
                     throw new Error('Nieprawidłowy typ działania');
                 }
@@ -22,5 +22,5 @@ class Wallet {
         }
     }
 }
-const wallet = new Wallet (200);
+// const wallet = new Wallet (200);
 

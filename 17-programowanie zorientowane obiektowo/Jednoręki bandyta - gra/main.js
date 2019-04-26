@@ -1,1 +1,1 @@
-const game = new Game(500);
+const game = new Game(250);
