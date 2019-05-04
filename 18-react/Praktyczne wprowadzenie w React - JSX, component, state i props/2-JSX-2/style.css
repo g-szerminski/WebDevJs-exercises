@@ -1,0 +1,11 @@
+body {
+  background-color: #555;
+}
+
+.red {
+  color: red;
+}
+
+.big {
+  font-size: 40px;
+}
