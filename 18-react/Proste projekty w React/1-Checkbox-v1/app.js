@@ -1,4 +1,4 @@
-const PositveMessage = () => <p>Możesz obejżeć film. Zapraszamy.</p>;
+const PositiveMessage = () => <p>Możesz obejżeć film. Zapraszamy.</p>;
 const NegativeMessage = () => <p>Nie możesz obejżeć filmu.</p>;
 
 class CheckBoxAge extends React.Component {
