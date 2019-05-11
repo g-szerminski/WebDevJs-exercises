@@ -1,70 +1,70 @@
-const ValidationMessage = (props) => {
-  const { txt } = props
-  return (
-    <p>{txt}</p>
-  )
-}
+const ValidationMessage = props => <p>{props.txt}</p>;
 
-const OrderForm = (props) => {
-  const { submit, isConfirmed, change } = props;
+const OrderForm = props => {
+  const { submit, change, isConfirmed } = props;
   return (
     <form onSubmit={submit}>
-      <input type="checkbox" id="age" onChange={change} checked={isConfirmed} />
-      <label htmlFor="age">Mam co najmniej 16 lata</label>
+      <input
+        type="checkbox"
+        id="age"
+        onChange={change}
+        // checked={this.state.isConfirmed}
+        checked={isConfirmed}
+      />
+      <label htmlFor="age">Mam conajmniej 16 lat</label>
       <br />
       <button type="submit">Kup bilet</button>
     </form>
-  )
-}
+  );
+};
 
 class TicketShop extends React.Component {
-
   state = {
     isConfirmed: false,
     isFormSubmitted: false
-  }
+  };
 
-  handleCheckboxChange = () => {
+  heandleCheckBox = () => {
     this.setState({
       isConfirmed: !this.state.isConfirmed,
-      isFormSubmitted: false,
-    })
-  }
+      isFormSubmitted: false
+    });
+  };
 
-  handleFormSubmit = (e) => {
-    e.preventDefault()
+  handleFormSubmit = e => {
+    e.preventDefault();
     if (!this.state.isFormSubmitted) {
       this.setState({
         isFormSubmitted: true
-      })
+      });
     }
-  }
+  };
 
   displayMessage = () => {
     if (this.state.isFormSubmitted) {
       if (this.state.isConfirmed) {
-        return <ValidationMessage txt="Możesz obejrzeć film. Zapraszamy!" />
+        return <ValidationMessage txt="Możesz obejżeć film. Zapraszamy." />;
       } else {
-        return <ValidationMessage txt="Nie możesz obejrzeć tego filmu jeśli masz mniej niż 16 lat!" />
+        return <ValidationMessage txt="Nie możesz obejżeć filmu." />;
       }
-    } else { return null }
-  }
+    } else {
+      return null;
+    }
+  };
 
   render() {
-    const { isConfirmed, isFormSubmitted } = this.state
-
+    const { isConfirmed } = this.state;
     return (
       <>
-        <h1>Kup bilet na horror roku!</h1>
+        <h1>Kup bilet na horror roku !</h1>
         <OrderForm
-          change={this.handleCheckboxChange}
+          change={this.heandleCheckBox}
           submit={this.handleFormSubmit}
           checked={isConfirmed}
         />
         {this.displayMessage()}
       </>
-    )
+    );
   }
 }
-
-ReactDOM.render(<TicketShop />, document.getElementById('root'))
+ReactDOM.render(<TicketShop />, document.getElementById("root"));
