@@ -3,44 +3,38 @@ const data = {
     {
       id: 1,
       age: 29,
-      name: "Arek",
+      name: "Arek"
     },
     {
       id: 2,
       age: 49,
-      name: "Marta",
+      name: "Marta"
     },
     {
       id: 3,
       age: 19,
-      name: "Stasia",
-    },
-    {
-      id: 4,
-      age: 24,
-      name: "Karol",
+      name: "Stasia"
     }
   ]
-}
+};
 
-const Item = ({ user }) => (
+const Item = ({ content }) => (
   <div>
-    <h1>Użytkownik {user.name}</h1>
-    <h2>Ma {user.age}</h2>
+    <h1>Użytkownik {content.name}</h1>
+    <h2>Ma {content.age}</h2>
   </div>
-)
+);
+
 class ListItems extends React.Component {
-
+  // state = {
+  //   items: ["jabłko", "sliwka", "gruszka"]
+  // };
   render() {
-    const users = this.props.data.users
-    const Items = users.map(user => <Item key={user.id} user={user} />)
+    const users = this.props.data.users;
+    const Items = users.map(item => <Item key={item.id} content={item} />);
 
-    return (
-      <ul>
-        {Items}
-      </ul>
-    )
+    return <ul>{Items}</ul>;
   }
 }
 
-ReactDOM.render(<ListItems data={data} />, document.getElementById('root'))
+ReactDOM.render(<ListItems data={data} />, document.getElementById("root"));
