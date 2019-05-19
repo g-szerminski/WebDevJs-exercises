@@ -1,33 +1,33 @@
 class Form extends React.Component {
   state = {
-    city: "Londyn",
+    city: "",
     text: "",
-    isLoved: true,
-    number: "2",
-  }
+    isLiked: true,
+    number: "0"
+  };
 
   handleCityChange = e => {
     this.setState({
-      city: e.target.value,
-    })
-  }
+      city: e.target.value
+    });
+  };
 
   handleTextChange = e => {
     this.setState({
-      text: e.target.value,
-    })
-  }
+      text: e.target.value
+    });
+  };
 
-  handleIsLovedChange = e => {
+  handleIsLikedChange = e => {
     this.setState({
-      isLoved: e.target.checked,
-    })
-  }
+      isLiked: e.target.checked
+    });
+  };
 
   handleVisitsNumberChange(e) {
     this.setState({
-      number: event.target.value,
-    })
+      number: e.target.value
+    });
   }
 
   render() {
@@ -35,21 +35,32 @@ class Form extends React.Component {
       <div>
         <label>
           Podaj miasto
-          <input value={this.state.city} onChange={this.handleCityChange} type="text" />
-        </label>
-        <br />
-        <label>Napisz coś o tym mieście
-          <textarea value={this.state.text} onChange={this.handleTextChange}></textarea>
+          <input
+            type="text"
+            value={this.state.city}
+            onChange={this.handleCityChange}
+          />
         </label>
         <br />
         <label>
-          Czy lubisz to miasto?
-          <input type="checkbox" checked={this.state.isLoved} onChange={this.handleIsLovedChange} />
+          Napisz coś o tym mieście
+          <textarea value={this.state.text} onChange={this.handleTextChange} />
+        </label>
+        <br />
+        <label>
+          Czy lubisz to miasto
+          <input
+            type="checkbox"
+            checked={this.state.isLiked}
+            onChange={this.handleIsLikedChange}
+          />
         </label>
         <br />
         <label>
           Ile razy byliście w tym mieście?
-          <select value={this.state.number} onChange={this.handleVisitsNumberChange.bind(this)}>
+          <select
+            value={this.state.number}
+            onChange={this.handleVisitsNumberChange.bind(this)}>
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -58,10 +69,8 @@ class Form extends React.Component {
           </select>
         </label>
       </div>
-
-    )
+    );
   }
 }
 
-
-ReactDOM.render(<Form />, document.getElementById('root'))
+ReactDOM.render(<Form />, document.getElementById("root"));
