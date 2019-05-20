@@ -6,21 +6,29 @@ class Form extends React.Component {
     number: "0"
   };
 
-  handleChange = e => {
-    // console.log([e.target.name]);
-    // console.log(e.target.type);
-    console.log(e.target.checked);
-
-    if (e.target.type === "checkbox") {
-      this.setState({
-        [e.target.name]: e.target.checked
-      });
-    } else {
-      this.setState({
-        [e.target.name]: e.target.value
-      });
-    }
+  handleCityChange = e => {
+    this.setState({
+      city: e.target.value
+    });
   };
+
+  handleTextChange = e => {
+    this.setState({
+      text: e.target.value
+    });
+  };
+
+  handleIsLikedChange = e => {
+    this.setState({
+      isLiked: e.target.checked
+    });
+  };
+
+  handleVisitsNumberChange(e) {
+    this.setState({
+      number: e.target.value
+    });
+  }
 
   render() {
     return (
@@ -28,38 +36,31 @@ class Form extends React.Component {
         <label>
           Podaj miasto
           <input
-            name="city"
             type="text"
             value={this.state.city}
-            onChange={this.handleChange}
+            onChange={this.handleCityChange}
           />
         </label>
         <br />
         <label>
           Napisz coś o tym mieście
-          <textarea
-            name="text"
-            value={this.state.text}
-            onChange={this.handleChange}
-          />
+          <textarea value={this.state.text} onChange={this.handleTextChange} />
         </label>
         <br />
         <label>
           Czy lubisz to miasto
           <input
-            name="isLiked"
             type="checkbox"
             checked={this.state.isLiked}
-            onChange={this.handleChange}
+            onChange={this.handleIsLikedChange}
           />
         </label>
         <br />
         <label>
           Ile razy byliście w tym mieście?
           <select
-            name="number"
             value={this.state.number}
-            onChange={this.handleChange}>
+            onChange={this.handleVisitsNumberChange.bind(this)}>
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
