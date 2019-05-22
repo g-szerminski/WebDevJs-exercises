@@ -6,28 +6,31 @@
 // Wersja na 5 - zobacz wróżbę, losuje jedną z trzech wróżb
 // Wersja na 6 - dodaje do trzech istniejących wróżb kolejną
 
-class Draw extends React.Component {
-
+class RandomFortune extends React.Component {
   state = {
-    options: ["1", "2", "3"],
-    option: null
-  }
+    fortune: ""
+  };
 
-  handleShowOption = () => {
-    const index = Math.floor(Math.random() * this.state.options.length);
+  handleRandomOmen = () => {
+    const omen = [
+      "Będziesz długo żyć",
+      "Będziesz żyć nie za długo :-(",
+      "Sama właściwie nie wiem co będzie"
+    ];
+    const randomIndex = Math.floor(Math.random() * omen.length);
     this.setState({
-      option: this.state.options[index]
-    })
-  }
+      fortune: omen[randomIndex]
+    });
+  };
 
   render() {
     return (
       <div>
-        <button onClick={this.handleShowOption}>Zobacz wróżbę</button>
-        {this.state.option ? <h1>{this.state.option}</h1> : null}
+        <button onClick={this.handleRandomOmen}>Zobacz wróżbę</button>
+        <h1>{this.state.fortune}</h1>
       </div>
-    )
+    );
   }
 }
 
-ReactDOM.render(<Draw />, document.getElementById('root'))
+ReactDOM.render(<RandomFortune />, document.getElementById("root"));
