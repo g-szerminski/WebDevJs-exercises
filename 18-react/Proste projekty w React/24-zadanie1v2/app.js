@@ -6,51 +6,47 @@
 // Wersja na 5 - zobacz wróżbę, losuje jedną z trzech wróżb
 // Wersja na 6 - dodaje do trzech istniejących wróżb kolejną
 
-class Draw extends React.Component {
-
+class RandomFortune extends React.Component {
   state = {
-    options: ["1", "2", "3"],
-    option: null,
-    value: "",
-  }
+    fortunes: [
+      "Będziesz długo żyć",
+      "Będziesz żyć nie za długo :-(",
+      "Sama właściwie nie wiem co będzie"
+    ],
+    fortune: null,
+    value: ""
+  };
 
-  handleShowOption = () => {
-    const index = Math.floor(Math.random() * this.state.options.length);
+  handleRandomOmen = () => {
+    const randomIndex = Math.floor(Math.random() * this.state.fortunes.length);
     this.setState({
-      option: this.state.options[index]
-    })
-  }
+      fortune: this.state.fortunes[randomIndex]
+    });
+  };
 
-  handleInputChange = e => {
+  handleInputOmen = e => {
     this.setState({
-      value: e.target.value,
-    })
-  }
+      value: e.target.value
+    });
+  };
 
-  handleAddOption = () => {
-    if (this.state.value === "") return alert('wpisz coś!')
-    // const options = [...this.state.options]
-    // options.push(this.state.value)
-    const options = this.state.options.concat(this.state.value);
-    this.setState({
-      options,
-      value: '',
-    })
-    alert(`Wróżba dodana. Aktualne wróżby: ${options}`)
-
-  }
+  handelAddOmen = () => {
+    if (this.state.value === "") alert("Wpisz coś");
+    const input = this.state.fortune.push(this.state.value);
+  };
 
   render() {
     return (
       <div>
-        <button onClick={this.handleShowOption}>Zobacz wróżbę</button>
-        <br />
-        <input type="text" value={this.state.value} onChange={this.handleInputChange} />
-        <button onClick={this.handleAddOption}>Dodaj wróżbę</button>
-        {this.state.option ? <h1>{this.state.option}</h1> : null}
+        <button onClick={this.handleRandomOmen}>Zobacz wróżbę</button>
+        <label>
+          <input type='text' onClick={this.handleInputOmen} />
+          <button onClick={this.handelAddOmen}>Dodaj wróżbę</button>
+        </label>
+        <h1>{this.state.fortune ? this.state.fortune : "losuj wreszcie !"}</h1>
       </div>
-    )
+    );
   }
 }
 
-ReactDOM.render(<Draw />, document.getElementById('root'))
+ReactDOM.render(<RandomFortune />, document.getElementById("root"));
