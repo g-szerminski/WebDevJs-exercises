@@ -32,7 +32,12 @@ class RandomFortune extends React.Component {
 
   handelAddOmen = () => {
     if (this.state.value === "") alert("Wpisz coś");
-    const input = this.state.fortune.push(this.state.value);
+    const fortunes = this.state.fortunes.push(this.state.value);
+    this.setState({
+      fortunes,
+      value: ""
+    });
+    alert(`Wróżba dodana. Aktualne wróżby to: ${this.state.fortunes}`);
   };
 
   render() {
@@ -40,7 +45,11 @@ class RandomFortune extends React.Component {
       <div>
         <button onClick={this.handleRandomOmen}>Zobacz wróżbę</button>
         <label>
-          <input type='text' onClick={this.handleInputOmen} />
+          <input
+            type='text'
+            value={this.state.value}
+            onChange={this.handleInputOmen}
+          />
           <button onClick={this.handelAddOmen}>Dodaj wróżbę</button>
         </label>
         <h1>{this.state.fortune ? this.state.fortune : "losuj wreszcie !"}</h1>
