@@ -1,44 +1,38 @@
 class Clock extends React.Component {
-
+  interval = "";
   state = {
-    time: this.getTime()
-  }
+    time: 0
+  };
 
   getTime() {
     const currentTime = new Date();
-    // console.log(currentTime);
-    return ({
-      hours: currentTime.getHours(),
-      minutes: currentTime.getMinutes(),
-      seconds: currentTime.getSeconds(),
-    }
-
-    )
+    return {
+      //   hours: new Date().getHours()
+      hours: currentTime.getHours() + "h",
+      minutes: currentTime.getMinutes() + "m",
+      seconds: currentTime.getSeconds() + "s"
+    };
   }
-
   setTime() {
-    // console.log(this);
-    const time = this.getTime()
-    this.setState({ time })
+    this.setState({
+      time: this.getTime()
+    });
   }
-
   componentDidMount() {
-    this.interval = setInterval(() => this.setTime(), 1000)
+    setInterval(this.setTime.bind(this), 1000);
   }
 
   componentWillUnmount() {
-    clearInterval(this.interval)
+    clearInterval(this.interval);
   }
 
   render() {
-    const { hours, minutes, seconds } = this.state.time
+    const { hours, minutes, seconds } = this.state.time;
     return (
-      <div>
+      <>
         {hours} : {minutes} : {seconds}
-      </div>
-    )
+      </>
+    );
   }
 }
-
-
-ReactDOM.render(<Clock />, document.getElementById('root'))
+ReactDOM.render(<Clock />, document.getElementById("root"));

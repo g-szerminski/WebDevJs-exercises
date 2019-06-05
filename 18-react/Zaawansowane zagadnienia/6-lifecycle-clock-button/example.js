@@ -1,71 +1,72 @@
 class App extends React.Component {
   state = {
     active: true
-  };
+  }
 
   handleClick = () => {
-    this.setState(prevState => ({
-      active: !prevState.active
-    }));
-  };
+    this.setState(state => ({
+      active: !state.active
+    }))
+  }
 
   render() {
     return (
       <div>
         <SwitchButton active={this.state.active} click={this.handleClick} />
         {this.state.active && <Clock />}
+
       </div>
-    );
+    )
   }
 }
+
 const SwitchButton = props => (
   <button onClick={props.click}>{props.active ? "Wyłącz" : "Włącz"}</button>
-);
+)
 class Clock extends React.Component {
-  // interval = "";
+
   state = {
-    time: 0
-  };
+    time: this.getTime()
+  }
 
   getTime() {
     const currentTime = new Date();
-    return {
-      //   hours: new Date().getHours()
+    // console.log(currentTime);
+    return ({
       hours: currentTime.getHours(),
       minutes: currentTime.getMinutes(),
-      seconds: currentTime.getSeconds()
-    };
-  }
-  setTime() {
-    this.setState({
-      time: this.getTime()
-    });
+      seconds: currentTime.getSeconds(),
+    }
+
+    )
   }
 
-  // setTime() {
-  //   const time = this.getTime();
-  //   this.setState({ time });
-  // }
+  setTime() {
+    // console.log(this);
+    const time = this.getTime()
+    this.setState({ time })
+  }
 
   componentDidMount() {
     console.log("Zegarek zamontowany");
-    this.interval = setInterval(this.setTime.bind(this), 1000);
+    this.interval = setInterval(() => this.setTime(), 1000)
   }
 
   componentWillUnmount() {
     console.log("Zegarek usunięty");
-    clearInterval(this.interval);
+    clearInterval(this.interval)
   }
 
   render() {
-    const { hours, minutes, seconds } = this.state.time;
+    const { hours, minutes, seconds } = this.state.time
+
     return (
       <div>
-        {`${hours > 9 ? hours : ` 0${hours}`}h `}:
-        {`${minutes > 9 ? minutes : ` 0${minutes}`}m `}:
-        {`${seconds > 9 ? seconds : ` 0${seconds}`}s `}
+        {hours} : {minutes > 9 ? minutes : `0${minutes}`} : {seconds > 9 ? seconds : `0${seconds}`}
       </div>
-    );
+    )
   }
 }
-ReactDOM.render(<App />, document.getElementById("root"));
+
+
+ReactDOM.render(<App />, document.getElementById('root'))
